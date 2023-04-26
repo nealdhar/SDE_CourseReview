@@ -1,9 +1,9 @@
 package data;
 import java.util.*;
+
 public class CommandLineCourseReview {
     private Scanner scanner;
     public static void main(String[] args) {
-
     }
 
     public void run() {

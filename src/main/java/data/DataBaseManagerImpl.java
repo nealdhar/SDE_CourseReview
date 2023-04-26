@@ -3,18 +3,26 @@ package data;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.File;
 
 public class DataBaseManagerImpl implements DatabaseManager {
 
     Connection connection;
     @Override
     public void connect() {
-
+        String databaseFile = "Reviews.sqlite3";
+        File file = new File(databaseFile);
+        String databaseURL = "jdbc:sqlite:" + databaseFile;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            connection = DriverManager.getConnection(databaseURL);
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void createTables() {
-
     }
 
     @Override
