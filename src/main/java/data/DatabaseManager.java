@@ -5,13 +5,13 @@ public interface DatabaseManager {
 
     void createTables();
 
-//    void addStudents(List<Student> students);
+    void addStudents(List<Student> students);
 
-//    void addCourses(List<Course> courses);
+    void addCourses(List<Course> courses);
 
-//    void addReviews(List<Review> reviews);
+    void addReviews(List<Review> reviews);
 
-//    Review getReviews(String courseName);
+    Review getReviews(String courseName);
 
     void clear();
 

@@ -18,6 +18,26 @@ public class DataBaseManagerImpl implements DatabaseManager {
     }
 
     @Override
+    public void addStudents(List<Student> students) {
+
+    }
+
+    @Override
+    public void addCourses(List<Course> courses) {
+
+    }
+
+    @Override
+    public void addReviews(List<Review> reviews) {
+
+    }
+
+    @Override
+    public Review getReviews(String courseName) {
+        return null;
+    }
+
+    @Override
     public void clear() {
 
     }
