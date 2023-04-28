@@ -1,4 +1,4 @@
-
+package edu.virginia.cs.data;
 
 public class Review {
     private int id;
@@ -16,3 +16,4 @@ public class Review {
     }
 
 // Add getters and setters for all attributes
+}

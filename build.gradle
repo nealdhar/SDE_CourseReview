@@ -6,6 +6,16 @@ repositories {
     mavenCentral()
 }
 
+application {
+    mainModule = 'edu.virginia.cs'
+    mainClass = 'edu.virginia.cs.gui.CourseReviewApplication'
+}
+
+javafx {
+    version = '17.0.2'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
 dependencies {
     implementation group: 'org.json', name: 'json', version: '20220924'
     implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.36.0.3'

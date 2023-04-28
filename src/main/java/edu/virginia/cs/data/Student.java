@@ -1,4 +1,4 @@
-
+package edu.virginia.cs.data;
 
 public class Student {
     private int id;

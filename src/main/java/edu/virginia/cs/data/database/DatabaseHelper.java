@@ -1,3 +1,5 @@
+package edu.virginia.cs.data.database;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -9,17 +11,10 @@ public class DatabaseHelper {
     //private static final String DB_URL = "jdbc:sqlite:" + DB_NAME;
 
     public static Connection connect() {
-    public static Connection connect() {
-        try {
-            return DriverManager.getConnection(DB_URL);
-        } catch (SQLException e) {
-            System.err.println("Error connecting to the database");
-            e.printStackTrace();
-            return null;
-        }
+        return null;
     }
 
-    public static void createTablesIfNeeded() {
+    public static void createTablesIfNeeded(){
         try (Connection connection = connect();
              Statement statement = connection.createStatement()) {
 
