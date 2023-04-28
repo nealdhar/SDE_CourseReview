@@ -1,5 +1,7 @@
 package data;
+import java.sql.SQLException;
 import java.util.List;
+import java.sql.Connection;
 public interface DatabaseManager {
 
     void connect();
