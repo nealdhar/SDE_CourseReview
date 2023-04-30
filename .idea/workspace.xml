@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0f615e77-dd10-4f21-9b86-2391dd71a282" name="Changes" comment="Committed unversioned files in Main" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/.idea/compiler.xml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2OnaF6sH8nqW50fyyrUbuWU7IBF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "18",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\james\IdeaProjects\hw7-coursereview-nd2pvz-ogf9uhy-jmj7db\src\main\java\data\database" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0f615e77-dd10-4f21-9b86-2391dd71a282" name="Changes" comment="" />
+      <created>1682198692504</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682198692504</updated>
+      <workItem from="1682198693903" duration="7835000" />
+      <workItem from="1682614410273" duration="3863000" />
+    </task>
+    <task id="LOCAL-00001" summary="made initial folders and classes">
+      <created>1682285951297</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682285951297</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added initial implementations to gradlew.build">
+      <created>1682286506925</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682286506925</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Created initial student class. Completely basic but gives us a starting point.">
+      <created>1682526812176</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682526812176</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Created initial Course and Review classes. Also set up SDK to corretto 17. Starting to work a little more on this project.">
+      <created>1682526883849</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682526883849</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Created initial DatabaseHelper class. Just a basic file to try to help with creating our databases.">
+      <created>1682532109186</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682532109186</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Created a Main.java class to try to add the tables">
+      <created>1682533551420</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682533551420</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Committed unversioned files in Main">
+      <created>1682709504323</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682709504323</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="made initial folders and classes" />
+    <MESSAGE value="added initial implementations to gradlew.build" />
+    <MESSAGE value="Created initial student class. Completely basic but gives us a starting point." />
+    <MESSAGE value="Created initial Course and Review classes. Also set up SDK to corretto 17. Starting to work a little more on this project." />
+    <MESSAGE value="Created initial DatabaseHelper class. Just a basic file to try to help with creating our databases." />
+    <MESSAGE value="Created a Main.java class to try to add the tables" />
+    <MESSAGE value="Committed unversioned files in Main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Committed unversioned files in Main" />
+  </component>
+</project>

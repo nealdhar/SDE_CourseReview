@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/hw7-coursereview-nd2pvz-ogf9uhy-jmj7db.iml" filepath="$PROJECT_DIR$/.idea/hw7-coursereview-nd2pvz-ogf9uhy-jmj7db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hw7-coursereview-nd2pvz-ogf9uhy-jmj7db.main.iml" filepath="$PROJECT_DIR$/.idea/modules/hw7-coursereview-nd2pvz-ogf9uhy-jmj7db.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hw7-coursereview-nd2pvz-ogf9uhy-jmj7db.test.iml" filepath="$PROJECT_DIR$/.idea/modules/hw7-coursereview-nd2pvz-ogf9uhy-jmj7db.test.iml" />
+    </modules>
+  </component>
+</project>
