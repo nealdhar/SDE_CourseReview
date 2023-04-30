@@ -12,13 +12,12 @@ public class CourseReviewApplication extends Application{
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(CourseReviewApplication.class.getResource("course-review-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(CourseReviewApplication.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("CourseReview");
+        stage.setTitle("University of Virginia Course Review");
         stage.setScene(scene);
         stage.show();
     }
-
 
     public static void main(String[] args) {
         launch();
