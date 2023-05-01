@@ -34,17 +34,17 @@ public class DataBaseManagerImpl implements DatabaseManager {
     @Override
     public void createTables() {
         String createStudentsTable = "CREATE TABLE IF NOT EXISTS " +
-                "Students (ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
+                "Students (ID INTEGER PRIMARY KEY, " +
                 "Name VARCHAR(255) NOT NULL, " +
                 "Password VARCHAR(255) NOT NULL);";
 
         String createCoursesTable = "CREATE TABLE IF NOT EXISTS " +
-                "Courses (ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
+                "Courses (ID INTEGER PRIMARY KEY, " +
                 "Department VARCHAR(255) NOT NULL, " +
                 "Catalog_Number INTEGER NOT NULL);";
 
         String createReviewsTable = "CREATE TABLE IF NOT EXISTS " +
-                "Reviews (ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
+                "Reviews (ID INTEGER PRIMARY KEY, " +
                 "StudentID INTEGER NOT NULL, " +
                 "CourseID INTEGER NOT NULL, " +
                 "Message TEXT NOT NULL, " +
@@ -62,7 +62,7 @@ public class DataBaseManagerImpl implements DatabaseManager {
 
     @Override
     public void addStudents(List<Student> students) {
-        String sql = "INSERT INTO Students (ID, Name, Password) VALUES (?, ?, ?);";
+        String sql = "INSERT INTO Students (Name, Password) VALUES (?, ?);";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             for (Student student : students) {
                 pstmt.setInt(1, student.getId_number());
@@ -77,7 +77,7 @@ public class DataBaseManagerImpl implements DatabaseManager {
 
     @Override
     public void addCourses(List<Course> courses) {
-        String sql = "INSERT INTO Courses (ID, Department, Catalog_Number) VALUES (?, ?, ?);";
+        String sql = "INSERT INTO Courses (Department, Catalog_Number) VALUES (?, ?);";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             for (Course course : courses) {
                 pstmt.setInt(1, course.getId_number());
@@ -92,7 +92,7 @@ public class DataBaseManagerImpl implements DatabaseManager {
 
     @Override
     public void addReviews(List<Review> reviews) {
-        String sql = "INSERT INTO Reviews (ID, StudentID, CourseID, Message, Rating) VALUES (?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO Reviews (StudentID, CourseID, Message, Rating) VALUES (?, ?, ?, ?);";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             for (Review review : reviews) {
                 pstmt.setInt(1, review.getId_number());
