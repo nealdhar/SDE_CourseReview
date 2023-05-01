@@ -65,9 +65,8 @@ public class DataBaseManagerImpl implements DatabaseManager {
         String sql = "INSERT INTO Students (Name, Password) VALUES (?, ?);";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             for (Student student : students) {
-                pstmt.setInt(1, student.getId_number());
-                pstmt.setString(2, student.getUsername());
-                pstmt.setString(3, student.getPassword());
+                pstmt.setString(1, student.getUsername());
+                pstmt.setString(2, student.getPassword());
                 pstmt.executeUpdate();
             }
         } catch (SQLException e) {
@@ -80,9 +79,8 @@ public class DataBaseManagerImpl implements DatabaseManager {
         String sql = "INSERT INTO Courses (Department, Catalog_Number) VALUES (?, ?);";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             for (Course course : courses) {
-                pstmt.setInt(1, course.getId_number());
-                pstmt.setString(2, course.getDepartment());
-                pstmt.setInt(3, course.getCatalogNumber());
+                pstmt.setString(1, course.getDepartment());
+                pstmt.setInt(2, course.getCatalogNumber());
                 pstmt.executeUpdate();
             }
         } catch (SQLException e) {
@@ -95,11 +93,10 @@ public class DataBaseManagerImpl implements DatabaseManager {
         String sql = "INSERT INTO Reviews (StudentID, CourseID, Message, Rating) VALUES (?, ?, ?, ?);";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             for (Review review : reviews) {
-                pstmt.setInt(1, review.getId_number());
-                pstmt.setInt(2, review.getReviewer().getId_number());
-                pstmt.setInt(3, review.getCourse().getId_number());
-                pstmt.setString(4, review.getReview_message());
-                pstmt.setInt(5, review.getRating());
+                pstmt.setInt(1, review.getReviewer().getId_number());
+                pstmt.setInt(2, review.getCourse().getId_number());
+                pstmt.setString(3, review.getReview_message());
+                pstmt.setInt(4, review.getRating());
                 pstmt.executeUpdate();
             }
         } catch (SQLException e) {
