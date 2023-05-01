@@ -15,6 +15,8 @@ public interface DatabaseManager {
     void addReviews(List<Review> reviews);
 
     Review getReviews(String courseName);
+    Student getStudent(int studentID);
+    Course getCourse(int courseID);
 
     void clear();
 

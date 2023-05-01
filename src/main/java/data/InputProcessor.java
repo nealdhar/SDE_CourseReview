@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class inputProcessor {
+public class InputProcessor {
     public List<Student> processStudents(List<String> studentInputs) {
         List<Student> students = new ArrayList<>();
         for (String input : studentInputs) {

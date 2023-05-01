@@ -81,6 +81,16 @@ public class DataBaseManagerImpl implements DatabaseManager {
     }
 
     @Override
+    public Student getStudent(int studentID) {
+        return null;
+    }
+
+    @Override
+    public Course getCourse(int courseID) {
+        return null;
+    }
+
+    @Override
     public void clear() {
         if (connection == null) {
             connect();
