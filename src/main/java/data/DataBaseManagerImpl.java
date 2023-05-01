@@ -62,7 +62,17 @@ public class DataBaseManagerImpl implements DatabaseManager {
 
     @Override
     public void addStudents(List<Student> students) {
-
+        String sql = "INSERT INTO Students (ID, Name, Password) VALUES (?, ?, ?);";
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            for (Student student : students) {
+                pstmt.setInt(1, student.getId_number());
+                pstmt.setString(2, student.getUsername());
+                pstmt.setString(3, student.getPassword());
+                pstmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
