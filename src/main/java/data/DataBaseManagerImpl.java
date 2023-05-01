@@ -35,17 +35,17 @@ public class DataBaseManagerImpl implements DatabaseManager {
     @Override
     public void createTables() {
         String createStudentsTable = "CREATE TABLE IF NOT EXISTS " +
-                "Students (ID INTEGER PRIMARY KEY, " +
+                "Students (ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
                 "Name VARCHAR(255) NOT NULL, " +
                 "Password VARCHAR(255) NOT NULL);";
 
         String createCoursesTable = "CREATE TABLE IF NOT EXISTS " +
-                "Courses (ID INTEGER PRIMARY KEY, " +
+                "Courses (ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
                 "Department VARCHAR(255) NOT NULL, " +
                 "Catalog_Number INTEGER NOT NULL);";
 
         String createReviewsTable = "CREATE TABLE IF NOT EXISTS " +
-                "Reviews (ID INTEGER PRIMARY KEY, " +
+                "Reviews (ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
                 "StudentID INTEGER NOT NULL, " +
                 "CourseID INTEGER NOT NULL, " +
                 "Message TEXT NOT NULL, " +
@@ -63,11 +63,12 @@ public class DataBaseManagerImpl implements DatabaseManager {
 
     @Override
     public void addStudents(List<Student> students) {
-        String sql = "INSERT INTO Students (Name, Password) VALUES (?, ?);";
+        String sql = "INSERT INTO Students (ID, Name, Password) VALUES (?, ?, ?);";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             for (Student student : students) {
-                pstmt.setString(1, student.getUsername());
-                pstmt.setString(2, student.getPassword());
+                pstmt.setInt(1, student.getId_number());
+                pstmt.setString(2, student.getUsername());
+                pstmt.setString(3, student.getPassword());
                 pstmt.executeUpdate();
             }
         } catch (SQLException e) {
@@ -77,11 +78,12 @@ public class DataBaseManagerImpl implements DatabaseManager {
 
     @Override
     public void addCourses(List<Course> courses) {
-        String sql = "INSERT INTO Courses (Department, Catalog_Number) VALUES (?, ?);";
+        String sql = "INSERT INTO Courses (ID, Department, Catalog_Number) VALUES (?, ?, ?);";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             for (Course course : courses) {
-                pstmt.setString(1, course.getDepartment());
-                pstmt.setInt(2, course.getCatalogNumber());
+                pstmt.setInt(1, course.getId_number());
+                pstmt.setString(2, course.getDepartment());
+                pstmt.setInt(3, course.getCatalogNumber());
                 pstmt.executeUpdate();
             }
         } catch (SQLException e) {
@@ -106,12 +108,22 @@ public class DataBaseManagerImpl implements DatabaseManager {
     }
 
     @Override
-    public Review getReviews(int courseID) {
-        String getReviewsIDQuery = String.format("""
-                SELECT * FROM Reviews WHERE CourseID = (%d);
-                """, courseID);
-        Review review =
-        return null;
+    public List<String> getReviews(int courseID) {
+        List<String> reviews = new ArrayList<>();
+        String getReviewsByCourseQuery = String.format("""
+        SELECT Message FROM Reviews WHERE CourseID = (%d);
+        """, courseID);
+        Statement statement = null;
+        try {
+            statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(getReviewsByCourseQuery);
+            while (resultSet.next()) {
+                reviews.add(resultSet.getString("Message"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return reviews;
     }
 
     @Override
