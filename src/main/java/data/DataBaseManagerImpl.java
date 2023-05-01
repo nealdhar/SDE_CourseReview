@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.File;
 
+@SuppressWarnings({"SqlDialectInspection", "SqlNoDataSourceInspection"})
 public class DataBaseManagerImpl implements DatabaseManager {
 
     Connection connection;
@@ -108,18 +109,50 @@ public class DataBaseManagerImpl implements DatabaseManager {
     }
 
     @Override
-    public Review getReviews(String courseName) {
+    public Review getReviews(int courseID) {
+        String getReviewsIDQuery = String.format("""
+                SELECT * FROM Reviews WHERE CourseID = (%d);
+                """, courseID);
+        Review review =
         return null;
     }
 
     @Override
     public Student getStudent(int studentID) {
-        return null;
+        String getStudentIDQuery = String.format("""
+                SELECT * FROM Students WHERE ID = (%d);
+                """, studentID);
+        Student student = null;
+        Statement statement = null;
+        try {
+            statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(getStudentIDQuery);
+            String name = resultSet.getString("Name");
+            String password = resultSet.getString("Password");
+            student = new Student(studentID, name, password);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return student;
     }
 
     @Override
     public Course getCourse(int courseID) {
-        return null;
+        String getCourseIDQuery = String.format("""
+                SELECT * FROM Courses WHERE ID = (%d);
+                """, courseID);
+        Course course = null;
+        Statement statement = null;
+        try {
+            statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(getCourseIDQuery);
+            String department = resultSet.getString("Department");
+            int catalog_number = resultSet.getInt("Catalog_Number");
+            course = new Course(courseID, department, catalog_number);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return course;
     }
 
     @Override
