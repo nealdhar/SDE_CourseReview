@@ -77,12 +77,34 @@ public class DataBaseManagerImpl implements DatabaseManager {
 
     @Override
     public void addCourses(List<Course> courses) {
-
+        String sql = "INSERT INTO Courses (ID, Department, Catalog_Number) VALUES (?, ?, ?);";
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            for (Course course : courses) {
+                pstmt.setInt(1, course.getId_number());
+                pstmt.setString(2, course.getDepartment());
+                pstmt.setInt(3, course.getCatalogNumber());
+                pstmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void addReviews(List<Review> reviews) {
-
+        String sql = "INSERT INTO Reviews (ID, StudentID, CourseID, Message, Rating) VALUES (?, ?, ?, ?, ?);";
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            for (Review review : reviews) {
+                pstmt.setInt(1, review.getId_number());
+                pstmt.setInt(2, review.getReviewer().getId_number());
+                pstmt.setInt(3, review.getCourse().getId_number());
+                pstmt.setString(4, review.getReview_message());
+                pstmt.setInt(5, review.getRating());
+                pstmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
