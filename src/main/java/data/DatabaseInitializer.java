@@ -42,6 +42,9 @@ public class DatabaseInitializer {
         List<String> review_messages = databaseManager.getReviews("CS 101");
         System.out.println(review_messages);
 
+        List<Integer> ratings = databaseManager.getRatings("CS 101");
+        System.out.println(ratings);
+
         databaseManager.disconnect();
     }
 }

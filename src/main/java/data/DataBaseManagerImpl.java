@@ -1,8 +1,7 @@
 package data;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.io.File;
 
 @SuppressWarnings({"SqlDialectInspection", "SqlNoDataSourceInspection"})
@@ -20,7 +19,7 @@ public class DataBaseManagerImpl implements DatabaseManager {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection(databaseURL);
         } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException(e);
         }
     }
 
@@ -49,35 +48,33 @@ public class DataBaseManagerImpl implements DatabaseManager {
             statement.execute(createCoursesTable);
             statement.execute(createReviewsTable);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException(e);
         }
     }
 
     @Override
-    public void addStudents(List<Student> students) {
+    public void addStudents(Student student) {
         String sql = "INSERT INTO Students (Name, Password) VALUES (?, ?);";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            for (Student student : students) {
-                statement.setString(1, student.getUsername());
-                statement.setString(2, student.getPassword());
-                statement.executeUpdate();
-            }
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, student.getUsername());
+            statement.setString(2, student.getPassword());
+            statement.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException(e);
         }
     }
 
     @Override
-    public void addCourses(List<Course> courses) {
+    public void addCourses(Course course) {
         String sql = "INSERT INTO Courses (Department, Catalog_Number) VALUES (?, ?);";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            for (Course course : courses) {
-                statement.setString(1, course.getDepartment());
-                statement.setInt(2, course.getCatalogNumber());
-                statement.executeUpdate();
-            }
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, course.getDepartment());
+            statement.setInt(2, course.getCatalogNumber());
+            statement.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException(e);
         }
     }
 
@@ -96,37 +93,54 @@ public class DataBaseManagerImpl implements DatabaseManager {
     }
 
     @Override
-    public void addReviews(List<Review> reviews) {
+    public void addReviews(Review review) {
         String sql = "INSERT INTO Reviews (Reviewer, Course, Message, Rating) VALUES (?, ?, ?, ?);";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            for (Review review : reviews) {
-                statement.setString(1, review.getReviewer().getUsername());
-                statement.setString(2, review.getCourse().getDepartment() + ' ' + review.getCourse().getCatalogNumber());
-                statement.setString(3, review.getReview_message());
-                statement.setInt(4, review.getRating());
-                statement.executeUpdate();
-            }
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, review.getReviewer().getUsername());
+            statement.setString(2, review.getCourse().getDepartment() + ' ' + review.getCourse().getCatalogNumber());
+            statement.setString(3, review.getReview_message());
+            statement.setInt(4, review.getRating());
+            statement.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException(e);
         }
     }
 
     @Override
     public List<String> getReviews(String courseName) {
         List<String> reviews = new ArrayList<>();
-        String getReviewsByCourseQuery = "SELECT Message FROM Reviews WHERE Course = ?";
+        String getReviewsByCourseQuery = "SELECT Message, Rating FROM Reviews WHERE Course = ?";
         PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(getReviewsByCourseQuery);
             statement.setString(1, courseName);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                reviews.add(resultSet.getString("Message"));
+                reviews.add(resultSet.getString("Message") + " Rating: " + resultSet.getInt("Rating"));
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException(e);
         }
         return reviews;
+    }
+
+    @Override
+    public List<Integer> getRatings(String courseName) {
+        List<Integer> ratings = new ArrayList<>();
+        String getRatingsByCourseQuery = "SELECT Rating FROM Reviews WHERE Course = ?";
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(getRatingsByCourseQuery);
+            statement.setString(1, courseName);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                ratings.add(resultSet.getInt("Rating"));
+            }
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
+        return ratings;
     }
 
     @Override
@@ -143,7 +157,7 @@ public class DataBaseManagerImpl implements DatabaseManager {
                 student = new Student(userName, password);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException(e);
         }
         return student;
     }
@@ -158,10 +172,11 @@ public class DataBaseManagerImpl implements DatabaseManager {
             statement.setString(1, department);
             statement.setInt(2, catalog_number);
             ResultSet resultSet = statement.executeQuery();
-            course = new Course(department, catalog_number);
-
+            if (resultSet.next()) {
+                course = new Course(resultSet.getString("Department"), resultSet.getInt("Catalog_Number"));
+            }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException(e);
         }
         return course;
     }
@@ -188,7 +203,7 @@ public class DataBaseManagerImpl implements DatabaseManager {
             }
             statement.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException(e);
         }
     }
 
@@ -206,7 +221,7 @@ public class DataBaseManagerImpl implements DatabaseManager {
             statement.executeUpdate(deleteCourses);
             statement.executeUpdate(deleteReviews);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException(e);
         }
     }
 
@@ -222,7 +237,7 @@ public class DataBaseManagerImpl implements DatabaseManager {
             connection.close();
             connection = null;
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException(e);
         }
     }
 }

@@ -4,19 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f615e77-dd10-4f21-9b86-2391dd71a282" name="Changes" comment="Adding methods to CourseReviewImplementation">
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/97f313db-8134-4630-b5db-56668e0915cc.xml" beforeDir="false" />
+    <list default="true" id="0f615e77-dd10-4f21-9b86-2391dd71a282" name="Changes" comment="Updating DatabaseManager - methods should be all good now">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reviews.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/data/Course.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/CourseReviewImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/data/CourseReviewImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/DataBaseManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/data/DataBaseManagerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/DatabaseInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/data/DatabaseInitializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/data/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/InputProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/data/InputProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/data/Review.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/data/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/data/CourseReviewImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/CourseReviewImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/data/DataBaseManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/DataBaseManagerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/data/DatabaseInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/DatabaseInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/data/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/InputProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/InputProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +147,7 @@
       <updated>1682198692504</updated>
       <workItem from="1682198693903" duration="7835000" />
       <workItem from="1682614410273" duration="3863000" />
-      <workItem from="1683041276674" duration="6562000" />
+      <workItem from="1683041276674" duration="13073000" />
     </task>
     <task id="LOCAL-00001" summary="made initial folders and classes">
       <created>1682285951297</created>
@@ -209,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682998757988</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Updating DatabaseManager - methods should be all good now">
+      <created>1683048030719</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683048030719</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +243,7 @@
     <MESSAGE value="Adding get methods" />
     <MESSAGE value="Changing CL implementation to a Course Review implementation" />
     <MESSAGE value="Adding methods to CourseReviewImplementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding methods to CourseReviewImplementation" />
+    <MESSAGE value="Updating DatabaseManager - methods should be all good now" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating DatabaseManager - methods should be all good now" />
   </component>
 </project>
