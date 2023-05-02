@@ -2,15 +2,16 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
-    <Label text="See Reviews for a Course"/>
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" stylesheets="@stylesheet.css">
+    <Label text="See Reviews for a Course" styleClass="header-label"/>
     <HBox spacing="10" alignment="CENTER">
         <Label text="Course Name:"/>
         <TextField fx:id="courseNameTextField" promptText="e.g. CS 3140"/>
     </HBox>
-    <Button fx:id="viewReviewsButton" text="View Reviews"/>
+    <Button fx:id="viewReviewsButton" text="View Reviews" styleClass="submit-button"/>
     <Label fx:id="courseAverageLabel"/>
     <ListView fx:id="reviewsListView" prefWidth="300" prefHeight="200"/>
-    <Button fx:id="backToMainMenuButton" text="Back to Main Menu"/>
+    <Button fx:id="backToMainMenuButton" text="Back to Main Menu" styleClass="back-button"/>
 </VBox>
