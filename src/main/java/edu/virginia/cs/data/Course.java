@@ -1,15 +1,15 @@
 package edu.virginia.cs.data;
 
 public class Course {
-    private int id;
     private String department;
-    private String catalogNumber;
+    private int catalog_number;
 
-    public Course(int id, String department, String catalogNumber) {
-        this.id = id;
+    public Course(String department, int catalog_number) {
         this.department = department;
-        this.catalogNumber = catalogNumber;
+        this.catalog_number = catalog_number;
     }
-
-    // Add getters and setters for all attributes
+    public String getDepartment() { return department;}
+    public void setDepartment(String department) { this.department = department; }
+    public int getCatalogNumber() { return catalog_number;}
+    public void setCatalogNumber(int catalog_number) { this.catalog_number = catalog_number; }
 }

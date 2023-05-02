@@ -1,22 +1,18 @@
 package edu.virginia.cs.data;
 
 public class Review {
-    private int id_number;
     private Student reviewer;
     private Course course;
     private String review_message;
     private int rating;
 
-    public Review(int idNumber, Student reviewer, Course course, String review_message, int rating) {
-        this.id_number = idNumber;
+    public Review(Student reviewer, Course course, String review_message, int rating) {
         this.reviewer = reviewer;
         this.course = course;
         this.review_message = review_message;
         this.rating = rating;
     }
 
-    public int getId_number() { return id_number; }
-    public void setId_number(int id_number) { this.id_number = id_number; }
     public Student getReviewer() { return reviewer; }
     public void setReviewer(Student reviewer) { this.reviewer = reviewer; }
     public Course getCourse() { return course; }
@@ -26,3 +22,4 @@ public class Review {
     public int getRating() { return rating; }
     public void setRating(int rating) { this.rating = rating; }
 }
+

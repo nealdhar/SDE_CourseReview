@@ -7,13 +7,18 @@ public interface DatabaseManager {
 
     void createTables();
 
-    void addStudents(List<Student> students);
+    void addStudents(Student student);
 
-    void addCourses(List<Course> courses);
+    void addCourses(Course course);
 
-    void addReviews(List<Review> reviews);
+    void addReviews(Review review);
 
-    Review getReviews(String courseName);
+    List<String> getReviews(String courseName);
+
+    List<Integer> getRatings(String courseName);
+    Student getStudent(String userName);
+
+    Course getCourse(String department, int catalog_number);
 
     void clear();
 
@@ -21,3 +26,5 @@ public interface DatabaseManager {
 
     void disconnect();
 }
+
+
