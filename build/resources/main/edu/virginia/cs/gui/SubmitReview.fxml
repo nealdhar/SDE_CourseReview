@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" stylesheets="@stylesheet.css">
+    <Label text="Submit a Review" styleClass="header-label"/>
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Course Name:"/>
+        <TextField fx:id="courseNameTextField" promptText="e.g. CS 3140"/>
+    </HBox>
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Message:"/>
+        <TextField fx:id="messageTextField" promptText="Your review message"/>
+    </HBox>
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Rating (1-5):"/>
+        <TextField fx:id="ratingTextField" promptText="1-5"/>
+    </HBox>
+    <HBox spacing="10" alignment="CENTER">
+        <Button fx:id="submitReviewButton" text="Submit Review" styleClass="submit-button"/>
+        <Button fx:id="backToMainMenuButton" text="Back to Main Menu" styleClass="back-button"/>
+    </HBox>
+    <Label fx:id="submitReviewStatusLabel"/>
+</VBox>

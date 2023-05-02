@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #ff8f05;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label fx:id="welcome_label" layoutX="20.0" layoutY="20.0" text="Welcome, [USERNAME]" textFill="WHITE">
+            <font>
+                <Font name="AppleGothic Regular" size="14.0" />
+            </font>
+        </Label>
+        <Button fx:id="submit_review_button" layoutX="140.0" layoutY="80.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #ffb805;" text="Submit a review" textFill="WHITE">
+            <font>
+                <Font name="AppleGothic Regular" size="13.0" />
+            </font>
+        </Button>
+        <Button fx:id="view_reviews_button" layoutX="140.0" layoutY="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #ffb805;" text="See reviews" textFill="WHITE">
+            <font>
+                <Font name="AppleGothic Regular" size="13.0" />
+            </font>
+        </Button>
+        <Button fx:id="logout_button" layoutX="140.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #ffb805;" text="Log out" textFill="WHITE">
+            <font>
+                <Font name="AppleGothic Regular" size="13.0" />
+            </font>
+        </Button>
+    </children>
+</Pane>

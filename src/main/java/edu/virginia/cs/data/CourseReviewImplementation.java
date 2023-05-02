@@ -42,16 +42,16 @@ public class CourseReviewImplementation {
     }
 
 
-    public void login(String userName, String password) {
+    public String login(String userName, String password) {
         Student student = dataBaseManager.getStudent(userName);
         if (student == null) {
-            System.err.println("Student not yet in system, please create a user.");
-            return;
+            return "Username not found";
         }
         String storedPassword = student.getPassword();
         if (!storedPassword.equals(password)) {
-            System.err.println("Password and/or username is incorrect.");
+            return "Password/username incorrect";
         }
+        return "Login successful";
     }
     public void createUser(String userName, String password, String confirmPassword) {
         if (dataBaseManager.isUsernameTaken(userName)) {
