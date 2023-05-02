@@ -1,14 +1,26 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'org.beryx.jlink' version '2.24.1'
 }
+
+group 'edu.virginia.cs.data'
 
 repositories {
     mavenCentral()
 }
 
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+tasks.withType(JavaCompile){
+    options.encoding = 'UTF-8'
+}
+
 application {
     mainModule = 'edu.virginia.cs'
-    mainClass = 'edu.virginia.cs.gui.CourseReviewApplication'
+    mainClass = 'edu.virginia.cs.data.Main'
 }
 
 javafx {
