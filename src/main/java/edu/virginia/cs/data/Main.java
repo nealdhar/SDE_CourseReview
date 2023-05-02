@@ -17,7 +17,6 @@ public class Main extends Application {
         Parent parent = fxmlLoader.load();
         CourseReviewController controller = fxmlLoader.getController();
         Scene scene = new Scene(parent);
-        stage.setTitle("University of Virginia Course Review");
         stage.setScene(scene);
         stage.show();
     }

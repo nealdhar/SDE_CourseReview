@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="178.0" prefWidth="306.0" style="-fx-background-color: #ff8f05;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="signup_name" layoutX="144.0" layoutY="39.0" prefHeight="26.0" prefWidth="127.0">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="signup_password_1" layoutX="144.0" layoutY="83.0" prefHeight="26.0" prefWidth="127.0">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="signup_password_2" layoutX="144.0" layoutY="128.0" prefHeight="26.0" prefWidth="127.0">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <Label layoutX="100.0" layoutY="5.0" text=" Create an Account" textFill="WHITE">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="100.0" layoutY="44.0" text="Name" textFill="WHITE">
+         <font>
+            <Font name="AppleGothic Regular" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="88.0" text="New Password" textFill="WHITE">
+         <font>
+            <Font name="AppleGothic Regular" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="133.0" text="Confirm Password" textFill="WHITE">
+         <font>
+            <Font name="AppleGothic Regular" size="10.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
