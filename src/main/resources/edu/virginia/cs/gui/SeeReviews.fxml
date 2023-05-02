@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <Label text="See Reviews for a Course"/>
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Course Name:"/>
+        <TextField fx:id="courseNameTextField" promptText="e.g. CS 3140"/>
+    </HBox>
+    <Button fx:id="viewReviewsButton" text="View Reviews"/>
+    <Label fx:id="courseAverageLabel"/>
+    <ListView fx:id="reviewsListView" prefWidth="300" prefHeight="200"/>
+    <Button fx:id="backToMainMenuButton" text="Back to Main Menu"/>
+</VBox>
