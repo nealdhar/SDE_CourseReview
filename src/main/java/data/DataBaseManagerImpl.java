@@ -66,7 +66,7 @@ public class DataBaseManagerImpl implements DatabaseManager {
         String sql = "INSERT INTO Students (ID, Name, Password) VALUES (?, ?, ?);";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             for (Student student : students) {
-                pstmt.setInt(1, student.getId_number());
+//                pstmt.setInt(1, student.getId_number());
                 pstmt.setString(2, student.getUsername());
                 pstmt.setString(3, student.getPassword());
                 pstmt.executeUpdate();
@@ -81,13 +81,27 @@ public class DataBaseManagerImpl implements DatabaseManager {
         String sql = "INSERT INTO Courses (ID, Department, Catalog_Number) VALUES (?, ?, ?);";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             for (Course course : courses) {
-                pstmt.setInt(1, course.getId_number());
+//                pstmt.setInt(1, course.getId_number());
                 pstmt.setString(2, course.getDepartment());
                 pstmt.setInt(3, course.getCatalogNumber());
                 pstmt.executeUpdate();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public boolean isUsernameTaken(String userName) {
+        String usernameTakenQuery = "SELECT * FROM Students WHERE Name = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(usernameTakenQuery);
+            statement.setString(1, userName);
+            ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
+            int userExists = resultSet.getInt(1);
+            return userExists > 0;
+        } catch (SQLException e) {
+            return false;
         }
     }
 
@@ -127,18 +141,18 @@ public class DataBaseManagerImpl implements DatabaseManager {
     }
 
     @Override
-    public Student getStudent(int studentID) {
+    public Student getStudent(String userName) {
         String getStudentIDQuery = String.format("""
-                SELECT * FROM Students WHERE ID = (%d);
-                """, studentID);
+                SELECT * FROM Students WHERE Name = (%s);
+                """, userName);
         Student student = null;
         Statement statement = null;
         try {
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(getStudentIDQuery);
-            String name = resultSet.getString("Name");
+            int studentID = resultSet.getInt("ID");
             String password = resultSet.getString("Password");
-            student = new Student(studentID, name, password);
+            student = new Student(studentID, userName, password);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -11,11 +11,11 @@ public class DatabaseInitializer {
         databaseManager.createTables();
 //        databaseManager.clear();
 //
-//        List<Student> students = new ArrayList<>();
-//        List<Course> courses = new ArrayList<>();
-//        List<Review> reviews = new ArrayList<>();
-//
-//        // Add sample data to the lists
+        List<Student> students = new ArrayList<>();
+        List<Course> courses = new ArrayList<>();
+        List<Review> reviews = new ArrayList<>();
+
+        // Add sample data to the lists
 //        students.add(new Student(1,"JohnDoe", "password1"));
 //        students.add(new Student(2,"JaneDoe", "password2"));
 //
@@ -31,7 +31,7 @@ public class DatabaseInitializer {
 //        databaseManager.addReviews(reviews);
 
 //        // Testing getting student info from ID
-//        Student student = databaseManager.getStudent(1);
+        Student student = databaseManager.getStudent("Olivia");
 //        System.out.println(student.getId_number());
 //        System.out.println(student.getUsername());
 //        System.out.println(student.getPassword());
@@ -41,10 +41,10 @@ public class DatabaseInitializer {
 //        System.out.println(course.getId_number());
 //        System.out.println(course.getDepartment());
 //        System.out.println(course.getCatalogNumber());
-
-        // Testing getting reviews from CourseID
-        List<String> reviews = databaseManager.getReviews(1);
-        System.out.println(reviews);
+//
+//        // Testing getting reviews from CourseID
+//        List<String> review_messages = databaseManager.getReviews(1);
+//        System.out.println(review_messages;
 
         databaseManager.disconnect();
     }
