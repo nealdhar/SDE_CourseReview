@@ -134,6 +134,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.DatabaseInitializer" />
+        <item itemvalue="Application.DatabaseInitializer" />
       </list>
     </recent_temporary>
   </component>
@@ -226,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683048030719</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="commit">
+      <created>1683055253612</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683055253612</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +252,7 @@
     <MESSAGE value="Changing CL implementation to a Course Review implementation" />
     <MESSAGE value="Adding methods to CourseReviewImplementation" />
     <MESSAGE value="Updating DatabaseManager - methods should be all good now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating DatabaseManager - methods should be all good now" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
 </project>

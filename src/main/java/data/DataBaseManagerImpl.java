@@ -2,7 +2,6 @@ package data;
 
 import java.sql.*;
 import java.util.*;
-import java.io.File;
 
 @SuppressWarnings({"SqlDialectInspection", "SqlNoDataSourceInspection"})
 public class DataBaseManagerImpl implements DatabaseManager {
