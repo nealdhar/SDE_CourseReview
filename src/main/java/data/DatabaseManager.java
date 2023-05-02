@@ -14,9 +14,10 @@ public interface DatabaseManager {
 
     void addReviews(List<Review> reviews);
 
-    List<String> getReviews(int courseID);
+    List<String> getReviews(String courseName);
     Student getStudent(String userName);
-    Course getCourse(int courseID);
+
+    Course getCourse(String department, int catalog_number);
 
     void clear();
 

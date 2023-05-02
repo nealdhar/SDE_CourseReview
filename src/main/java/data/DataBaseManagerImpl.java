@@ -9,17 +9,9 @@ import java.io.File;
 public class DataBaseManagerImpl implements DatabaseManager {
 
     Connection connection;
-
-    public static void main(String[] args) {
-        DataBaseManagerImpl dataBaseManager = new DataBaseManagerImpl();
-        dataBaseManager.connect();
-        dataBaseManager.createTables();
-//        dataBaseManager.deleteTables();
-    }
     @Override
     public void connect() {
         String databaseFile = "Reviews.sqlite3";
-        File file = new File(databaseFile);
         String databaseURL = "jdbc:sqlite:" + databaseFile;
         try {
             if (connection != null && !connection.isClosed()) {
@@ -35,23 +27,23 @@ public class DataBaseManagerImpl implements DatabaseManager {
     @Override
     public void createTables() {
         String createStudentsTable = "CREATE TABLE IF NOT EXISTS " +
-                "Students (ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
+                "Students (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "Name VARCHAR(255) NOT NULL, " +
                 "Password VARCHAR(255) NOT NULL);";
 
         String createCoursesTable = "CREATE TABLE IF NOT EXISTS " +
-                "Courses (ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
+                "Courses (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "Department VARCHAR(255) NOT NULL, " +
                 "Catalog_Number INTEGER NOT NULL);";
 
         String createReviewsTable = "CREATE TABLE IF NOT EXISTS " +
-                "Reviews (ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
-                "StudentID INTEGER NOT NULL, " +
-                "CourseID INTEGER NOT NULL, " +
+                "Reviews (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "Reviewer INTEGER NOT NULL, " +
+                "Course INTEGER NOT NULL, " +
                 "Message TEXT NOT NULL, " +
                 "Rating INTEGER NOT NULL, " +
-                "FOREIGN KEY (StudentID) REFERENCES Students(ID) ON DELETE CASCADE, " +
-                "FOREIGN KEY (CourseID) REFERENCES Courses(ID) ON DELETE CASCADE);";
+                "FOREIGN KEY (Reviewer) REFERENCES Students(ID) ON DELETE CASCADE, " +
+                "FOREIGN KEY (Course) REFERENCES Courses(ID) ON DELETE CASCADE);";
         try (Statement statement = connection.createStatement()) {
             statement.execute(createStudentsTable);
             statement.execute(createCoursesTable);
@@ -63,13 +55,12 @@ public class DataBaseManagerImpl implements DatabaseManager {
 
     @Override
     public void addStudents(List<Student> students) {
-        String sql = "INSERT INTO Students (ID, Name, Password) VALUES (?, ?, ?);";
-        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+        String sql = "INSERT INTO Students (Name, Password) VALUES (?, ?);";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
             for (Student student : students) {
-//                pstmt.setInt(1, student.getId_number());
-                pstmt.setString(2, student.getUsername());
-                pstmt.setString(3, student.getPassword());
-                pstmt.executeUpdate();
+                statement.setString(1, student.getUsername());
+                statement.setString(2, student.getPassword());
+                statement.executeUpdate();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -78,13 +69,12 @@ public class DataBaseManagerImpl implements DatabaseManager {
 
     @Override
     public void addCourses(List<Course> courses) {
-        String sql = "INSERT INTO Courses (ID, Department, Catalog_Number) VALUES (?, ?, ?);";
-        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+        String sql = "INSERT INTO Courses (Department, Catalog_Number) VALUES (?, ?);";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
             for (Course course : courses) {
-//                pstmt.setInt(1, course.getId_number());
-                pstmt.setString(2, course.getDepartment());
-                pstmt.setInt(3, course.getCatalogNumber());
-                pstmt.executeUpdate();
+                statement.setString(1, course.getDepartment());
+                statement.setInt(2, course.getCatalogNumber());
+                statement.executeUpdate();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -107,14 +97,14 @@ public class DataBaseManagerImpl implements DatabaseManager {
 
     @Override
     public void addReviews(List<Review> reviews) {
-        String sql = "INSERT INTO Reviews (StudentID, CourseID, Message, Rating) VALUES (?, ?, ?, ?);";
-        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+        String sql = "INSERT INTO Reviews (Reviewer, Course, Message, Rating) VALUES (?, ?, ?, ?);";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
             for (Review review : reviews) {
-                pstmt.setInt(1, review.getReviewer().getId_number());
-                pstmt.setInt(2, review.getCourse().getId_number());
-                pstmt.setString(3, review.getReview_message());
-                pstmt.setInt(4, review.getRating());
-                pstmt.executeUpdate();
+                statement.setString(1, review.getReviewer().getUsername());
+                statement.setString(2, review.getCourse().getDepartment() + ' ' + review.getCourse().getCatalogNumber());
+                statement.setString(3, review.getReview_message());
+                statement.setInt(4, review.getRating());
+                statement.executeUpdate();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -122,15 +112,14 @@ public class DataBaseManagerImpl implements DatabaseManager {
     }
 
     @Override
-    public List<String> getReviews(int courseID) {
+    public List<String> getReviews(String courseName) {
         List<String> reviews = new ArrayList<>();
-        String getReviewsByCourseQuery = String.format("""
-        SELECT Message FROM Reviews WHERE CourseID = (%d);
-        """, courseID);
-        Statement statement = null;
+        String getReviewsByCourseQuery = "SELECT Message FROM Reviews WHERE Course = ?";
+        PreparedStatement statement = null;
         try {
-            statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(getReviewsByCourseQuery);
+            statement = connection.prepareStatement(getReviewsByCourseQuery);
+            statement.setString(1, courseName);
+            ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 reviews.add(resultSet.getString("Message"));
             }
@@ -142,17 +131,17 @@ public class DataBaseManagerImpl implements DatabaseManager {
 
     @Override
     public Student getStudent(String userName) {
-        String getStudentIDQuery = String.format("""
-                SELECT * FROM Students WHERE Name = (%s);
-                """, userName);
+        String getStudentQuery = "SELECT * FROM Students WHERE Name = ?";
         Student student = null;
-        Statement statement = null;
+        PreparedStatement statement = null;
         try {
-            statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(getStudentIDQuery);
-            int studentID = resultSet.getInt("ID");
-            String password = resultSet.getString("Password");
-            student = new Student(studentID, userName, password);
+            statement = connection.prepareStatement(getStudentQuery);
+            statement.setString(1, userName);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                String password = resultSet.getString("Password");
+                student = new Student(userName, password);
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -160,18 +149,17 @@ public class DataBaseManagerImpl implements DatabaseManager {
     }
 
     @Override
-    public Course getCourse(int courseID) {
-        String getCourseIDQuery = String.format("""
-                SELECT * FROM Courses WHERE ID = (%d);
-                """, courseID);
+    public Course getCourse(String department, int catalog_number) {
+        String getCourseQuery = "SELECT * FROM Courses WHERE Department = ? AND Catalog_Number = ?";
         Course course = null;
-        Statement statement = null;
+        PreparedStatement statement = null;
         try {
-            statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(getCourseIDQuery);
-            String department = resultSet.getString("Department");
-            int catalog_number = resultSet.getInt("Catalog_Number");
-            course = new Course(courseID, department, catalog_number);
+            statement = connection.prepareStatement(getCourseQuery);
+            statement.setString(1, department);
+            statement.setInt(2, catalog_number);
+            ResultSet resultSet = statement.executeQuery();
+            course = new Course(department, catalog_number);
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

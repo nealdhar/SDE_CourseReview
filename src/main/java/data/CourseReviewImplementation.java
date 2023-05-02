@@ -26,12 +26,12 @@ public class CourseReviewImplementation {
         }
         return true;
     }
-    public void createUser(int ID, String userName, String password, String confirmPassword) {
+    public void createUser(String userName, String password, String confirmPassword) {
         if (dataBaseManager.isUsernameTaken(userName)) {
             System.out.println("Username is already found in database.");
         }
         else if (password == confirmPassword) {
-            students.add(new Student(ID, userName, password));
+            students.add(new Student(userName, password));
         }
     }
 
@@ -48,9 +48,10 @@ public class CourseReviewImplementation {
         department.toUpperCase();
         int catalog_number = Integer.parseInt(catalogNum);
         int rating = Integer.parseInt(courseRating);
-        Course course = new Course(0, department, catalog_number);
+        Course course = new Course(department, catalog_number);
         Student student = dataBaseManager.getStudent(userName);
-        reviews.add(new Review(0, student, course, reviewMessage, rating));
+        String courseName = department + catalogNum;
+//        reviews.add(new Review(student, courseName, reviewMessage, rating));
     }
     public void seeReviews(Review review) {
 

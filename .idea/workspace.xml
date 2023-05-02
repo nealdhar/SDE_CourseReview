@@ -4,25 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f615e77-dd10-4f21-9b86-2391dd71a282" name="Changes" comment="Changing CL implementation to a Course Review implementation">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="0f615e77-dd10-4f21-9b86-2391dd71a282" name="Changes" comment="Adding methods to CourseReviewImplementation">
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/97f313db-8134-4630-b5db-56668e0915cc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reviews.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/CommandLineCourseReview.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/DataBaseManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/data/DataBaseManagerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/DatabaseInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/data/DatabaseInitializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/data/DatabaseManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/data/CourseReviewImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/CourseReviewImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/data/DataBaseManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/DataBaseManagerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/data/DatabaseInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/DatabaseInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/data/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/InputProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/InputProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +34,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -87,24 +84,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "18",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\james\IdeaProjects\hw7-coursereview-nd2pvz-ogf9uhy-jmj7db\src\main\java\data\database" />
@@ -140,6 +137,7 @@
       <updated>1682198692504</updated>
       <workItem from="1682198693903" duration="7835000" />
       <workItem from="1682614410273" duration="3863000" />
+      <workItem from="1683041276674" duration="6562000" />
     </task>
     <task id="LOCAL-00001" summary="made initial folders and classes">
       <created>1682285951297</created>
@@ -204,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682993445332</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Adding methods to CourseReviewImplementation">
+      <created>1682998757988</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682998757988</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +225,7 @@
     <MESSAGE value="Committed unversioned files in Main" />
     <MESSAGE value="Adding get methods" />
     <MESSAGE value="Changing CL implementation to a Course Review implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changing CL implementation to a Course Review implementation" />
+    <MESSAGE value="Adding methods to CourseReviewImplementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding methods to CourseReviewImplementation" />
   </component>
 </project>
