@@ -21,7 +21,7 @@
       </Label>
       <TextField fx:id="login_name" layoutX="81.0" layoutY="57.0" />
       <PasswordField fx:id="login_password" layoutX="81.0" layoutY="107.0" />
-      <Label fx:id="name_label" layoutX="58.0" layoutY="41.0" text="Name" textFill="WHITE">
+      <Label fx:id="name_label" layoutX="58.0" layoutY="41.0" text="Login Name" textFill="WHITE">
          <font>
             <Font name="AppleGothic Regular" size="10.0" />
          </font>
