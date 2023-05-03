@@ -3,13 +3,18 @@ package edu.virginia.cs.gui;
 import edu.virginia.cs.data.CourseReviewImplementation;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import edu.virginia.cs.data.CourseReviewImplementation;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 
+import java.io.IOException;
 import java.util.List;
 
 public class SeeReviewsController {
@@ -54,6 +59,12 @@ public class SeeReviewsController {
 
     @FXML
     public void backToMainMenu() {
-        // Navigate back to the main menu
+        try {
+            Pane root = FXMLLoader.load(getClass().getResource("/edu/virginia/cs/gui/main_menu-view.fxml"));
+            Stage stage = (Stage) backToMainMenuButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
