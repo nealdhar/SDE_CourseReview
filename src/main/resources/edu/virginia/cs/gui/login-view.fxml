@@ -31,5 +31,10 @@
             <Font name="AppleGothic Regular" size="10.0" />
          </font>
       </Label>
+      <Label fx:id="loginStatusLabel" layoutX="140.0" layoutY="100.0" text="" textFill="WHITE">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
