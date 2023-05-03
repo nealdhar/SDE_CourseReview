@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="198.0" prefWidth="322.0" style="-fx-background-color: #ff8f05;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="198.0" prefWidth="322.0" style="-fx-background-color: #ff8f05;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.virginia.cs.gui.CourseReviewController">
    <children>
-      <Button fx:id="signup_button" layoutX="128.0" layoutY="144.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: #ffb805;" text="Sign up" textFill="WHITE">
+      <Button fx:id="signup_button" layoutX="85.0" layoutY="144.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" style="-fx-background-color: #ffb805;" text="Sign up" textFill="WHITE">
          <font>
             <Font name="AppleGothic Regular" size="13.0" />
          </font>
@@ -36,5 +36,10 @@
             <Font name="AppleGothic Regular" size="13.0" />
          </font>
       </Label>
+      <Button fx:id="login_button" layoutX="172.0" layoutY="144.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" style="-fx-background-color: #ffb805;" text="Login" textFill="WHITE">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

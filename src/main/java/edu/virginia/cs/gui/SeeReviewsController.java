@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import edu.virginia.cs.data.CourseReviewImplementation;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -37,14 +36,14 @@ public class SeeReviewsController {
     private Button backToMainMenuButton;
 
     public void seeReviews(String courseName) {
-        List<String> reviews = getReviews(courseName);
+        List<String> reviews = courseReview.getReviews(courseName);
         if (reviews.isEmpty()) {
             System.out.println("There are no reviews for this course.");
         }
         for (String review : reviews) {
             System.out.println(review);
         }
-        String course_average = courseAverage(courseName);
+        String course_average = courseReview.courseAverage(courseName);
         System.out.println("Average Course Rating: " + course_average);
     }
 

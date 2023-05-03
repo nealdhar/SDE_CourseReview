@@ -1,8 +1,12 @@
 package edu.virginia.cs.gui;
 
 import edu.virginia.cs.data.CourseReviewImplementation;
+import edu.virginia.cs.data.Main;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -22,7 +26,9 @@ public class CourseReviewController {
     @FXML
     protected PasswordField login_password;
     @FXML
-    protected Label loginStatusLabel;
+    protected Label loginErrorLabel;
+
+
 
     @FXML
     public void login(TextField login_name, PasswordField login_password) {
@@ -30,17 +36,23 @@ public class CourseReviewController {
         String password = login_password.getText();
         String login = courseReview.login(userName, password);
         if (login.equals("Username not found")) {
-            loginStatusLabel.setText("Username not found, please create a new user.");
+            loginErrorLabel.setText("Username not found, please create a new user.");
         }
         if (login.equals("Password/username incorrect")) {
-            loginStatusLabel.setText("Password and/or username is incorrect. Try again.");
+            loginErrorLabel.setText("Password and/or username is incorrect. Try again.");
         }
         if (login.equals("Login successful")) {
-            loginStatusLabel.setText(""); // Clear the status label
             navigateToMainMenu();
         }
     }
-
+    public void showErrorMessage(ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/edu/virginia/cs/gui/login-error.fxml"));
+        Parent parent = fxmlLoader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+    }
     private void navigateToMainMenu() {
         try {
             Pane root = FXMLLoader.load(getClass().getResource("/edu/virginia/cs/gui/main_menu-view.fxml"));

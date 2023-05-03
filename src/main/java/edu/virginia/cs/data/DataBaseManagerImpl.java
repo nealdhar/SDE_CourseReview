@@ -252,5 +252,23 @@ public class DataBaseManagerImpl implements DatabaseManager {
             throw new IllegalStateException(e);
         }
     }
+        public void createDatabaseData() {
+            Student Neal = new Student("Neal", "nealdhar");
+            Student Olivia = new Student("Liv", "livfountain");
+            Student James = new Student("James", "jamesjin");
+            addStudents(Neal); addStudents(Olivia); addStudents(James);
+            Course cs3140 = new Course("CS",3140);
+            Course dram2620 = new Course("DRAM", 2620);
+            Course cs2130 = new Course("CS", 2130);
+            addCourses(cs3140); addCourses(dram2620); addCourses(cs2130);
+            Review dram2620_review_1 = new Review(Neal, dram2620, "Liked this class", 5);
+            Review dram2620_review_2 = new Review(James, dram2620, "Mid class", 3);
+            Review cs3140_review = new Review(Olivia, cs3140, "Lot of work", 4);
+            Review cs2130_review = new Review(Neal, cs2130, "Didn't like", 1);
+            addReviews(dram2620_review_1); addReviews(dram2620_review_2);
+            addReviews(cs3140_review); addReviews(cs2130_review);
+
+        }
+
 }
 
