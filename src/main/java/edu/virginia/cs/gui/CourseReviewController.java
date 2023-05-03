@@ -2,26 +2,27 @@ package edu.virginia.cs.gui;
 
 import edu.virginia.cs.data.CourseReviewImplementation;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CourseReviewController implements Initializable {
+public class CourseReviewController {
 
     CourseReviewImplementation courseReview = new CourseReviewImplementation();
     @FXML
     protected TextField login_name;
     @FXML
     protected PasswordField login_password;
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Other things to initialize GUI
-        courseReview.connectDatabase();
-        courseReview.createTables();
-    }
+    @FXML
+    protected Label loginStatusLabel;
 
     @FXML
     public void login(TextField login_name, PasswordField login_password) {
@@ -29,14 +30,24 @@ public class CourseReviewController implements Initializable {
         String password = login_password.getText();
         String login = courseReview.login(userName, password);
         if (login.equals("Username not found")) {
-            // Show message in GUI that username is not found, please create new user.
+            loginStatusLabel.setText("Username not found, please create a new user.");
         }
         if (login.equals("Password/username incorrect")) {
-            // Show message in GUI that password/and or username is incorrect. Try again
+            loginStatusLabel.setText("Password and/or username is incorrect. Try again.");
         }
         if (login.equals("Login successful")) {
-            // Login is successful, immediately show main menu
+            loginStatusLabel.setText(""); // Clear the status label
+            navigateToMainMenu();
         }
     }
 
+    private void navigateToMainMenu() {
+        try {
+            Pane root = FXMLLoader.load(getClass().getResource("/edu/virginia/cs/gui/main_menu-view.fxml"));
+            Stage stage = (Stage) login_name.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
