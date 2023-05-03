@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" stylesheets="@stylesheet.css">
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="edu.virginia.cs.gui.SubmitReviewController" stylesheets="@stylesheet.css">
     <Label text="Submit a Review" styleClass="header-label"/>
     <HBox spacing="10" alignment="CENTER">
         <Label text="Course Name:"/>
