@@ -1,4 +1,8 @@
 package edu.virginia.cs.data;
+import edu.virginia.cs.data.DataBaseManagerImpl;
+import edu.virginia.cs.data.Student;
+import edu.virginia.cs.data.Course;
+import edu.virginia.cs.data.Review;
 
 import java.text.DecimalFormat;
 import java.util.*;
@@ -62,6 +66,7 @@ public class CourseReviewImplementation {
             dataBaseManager.addStudents(student);
         }
     }
+
 
 
     public void submitReview(String userName, String department, String catalogNum, String reviewMessage, String courseRating) {
@@ -134,5 +139,16 @@ public class CourseReviewImplementation {
         double course_average = (double) sum / ratings.size();
         return df.format(course_average);
     }
+
+    public List<String> getReviews(String courseName) {
+        String[] splitCourseName = courseName.split(" ");
+        String department = splitCourseName[0];
+        String catalogNumber = splitCourseName[1];
+        String course = department + ' ' + catalogNumber;
+        List<String> reviews = dataBaseManager.getReviews(course);
+        return reviews;
+    }
+
+
 }
 
