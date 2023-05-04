@@ -82,8 +82,8 @@ public class CourseReviewController implements Initializable {
     }
     private void navigateToMainMenu() {
         try {
-            Pane root = FXMLLoader.load(CourseReviewController.class.getResource("/edu/virginia/cs/gui/main_menu-view.fxml"));
-            Stage stage = (Stage) login_name.getScene().getWindow();
+            Pane root = FXMLLoader.load(CourseReviewController.class.getResource("/edu/virginia/cs/gui/main_menu_view.fxml"));
+            Stage stage = (Stage) login_button.getScene().getWindow();
             stage.setScene(new Scene(root));
         } catch (IOException e) {
             e.printStackTrace();
