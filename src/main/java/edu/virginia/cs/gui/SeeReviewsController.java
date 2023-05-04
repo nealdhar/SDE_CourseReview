@@ -19,21 +19,16 @@ import java.util.List;
 public class SeeReviewsController {
 
     CourseReviewImplementation courseReview = new CourseReviewImplementation();
-
     @FXML
-    private TextField courseNameTextField;
-
+    protected TextField courseNameTextField;
     @FXML
-    private Button viewReviewsButton;
-
+    protected Button viewReviewsButton;
     @FXML
-    private Label courseAverageLabel;
-
+    protected Label courseAverageLabel;
     @FXML
-    private ListView<String> reviewsListView;
-
+    protected ListView<String> reviewsListView;
     @FXML
-    private Button backToMainMenuButton;
+    protected Button backToMainMenuButton;
 
     public void seeReviews(String courseName) {
         List<String> reviews = courseReview.getReviews(courseName);

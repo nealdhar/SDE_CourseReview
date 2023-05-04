@@ -23,7 +23,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CourseReviewController implements Initializable {
-
     CourseReviewImplementation courseReview = new CourseReviewImplementation();
     @FXML
     protected TextField login_name;
@@ -31,13 +30,10 @@ public class CourseReviewController implements Initializable {
     protected PasswordField login_password;
     @FXML
     protected Label loginErrorLabel;
-
     @FXML
     protected Button login_button;
-
     @FXML
     protected Button signup_button;
-
     @FXML
     protected ActionEvent event;
 

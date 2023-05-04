@@ -2,22 +2,37 @@ package edu.virginia.cs.gui;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.scene.Parent;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MainMenuController {
+public class MainMenuController implements Initializable {
 
     @FXML
-    private Button submit_review_button;
+    protected Button submit_review_button;
     @FXML
-    private Button view_reviews_button;
+    protected Button view_reviews_button;
     @FXML
-    private Button logout_button;
-
+    protected Button logout_button;
+    public void initialize(URL location, ResourceBundle resources) {
+        submit_review_button.setOnAction((event) -> {
+            navigateToSubmitReview();
+        });
+        view_reviews_button.setOnAction((event) -> {
+            navigateToSeeReviews();
+        });
+        logout_button.setOnAction((event) -> {
+            navigateToLogout();
+        });
+    }
     @FXML
     public void navigateToSubmitReview() {
         try {
@@ -28,7 +43,6 @@ public class MainMenuController {
             e.printStackTrace();
         }
     }
-
     @FXML
     public void navigateToSeeReviews() {
         try {
@@ -39,7 +53,6 @@ public class MainMenuController {
             e.printStackTrace();
         }
     }
-
     @FXML
     public void navigateToLogout() {
         try {
