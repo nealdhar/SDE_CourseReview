@@ -51,6 +51,9 @@ public class CourseReviewController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
+        signup_button.setOnAction((event) -> {
+                navigateToSignUp();
+        });
     }
 
     public void executeLogin(ActionEvent e) throws IOException {
@@ -84,6 +87,16 @@ public class CourseReviewController implements Initializable {
         try {
             Pane root = FXMLLoader.load(CourseReviewController.class.getResource("/edu/virginia/cs/gui/main_menu_view.fxml"));
             Stage stage = (Stage) login_button.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void navigateToSignUp() {
+        try {
+            Pane root = FXMLLoader.load(CourseReviewController.class.getResource("/edu/virginia/cs/gui/signup-view.fxml"));
+            Stage stage = (Stage) signup_button.getScene().getWindow();
             stage.setScene(new Scene(root));
         } catch (IOException e) {
             e.printStackTrace();
