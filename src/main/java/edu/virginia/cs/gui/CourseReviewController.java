@@ -1,13 +1,17 @@
 package edu.virginia.cs.gui;
 
 import edu.virginia.cs.data.CourseReviewImplementation;
+import edu.virginia.cs.data.DataBaseManagerImpl;
+import edu.virginia.cs.data.DatabaseManager;
 import edu.virginia.cs.data.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
@@ -18,7 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CourseReviewController {
+public class CourseReviewController implements Initializable {
 
     CourseReviewImplementation courseReview = new CourseReviewImplementation();
     @FXML
@@ -28,14 +32,37 @@ public class CourseReviewController {
     @FXML
     protected Label loginErrorLabel;
 
-
+    @FXML
+    protected Button login_button;
 
     @FXML
-    public void login(TextField login_name, PasswordField login_password) {
+    protected Button signup_button;
+
+    @FXML
+    protected ActionEvent event;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        login_button.setOnAction((event) -> {
+            try {
+                executeLogin(event);
+            }
+            catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
+    public void executeLogin(ActionEvent e) throws IOException {
+        login(login_name, login_password);
+    }
+    @FXML
+    public void login(TextField login_name, PasswordField login_password) throws IOException{
         String userName = login_name.getText();
         String password = login_password.getText();
         String login = courseReview.login(userName, password);
         if (login.equals("Username not found")) {
+            showErrorMessage(event);
             loginErrorLabel.setText("Username not found, please create a new user.");
         }
         if (login.equals("Password/username incorrect")) {
@@ -55,7 +82,7 @@ public class CourseReviewController {
     }
     private void navigateToMainMenu() {
         try {
-            Pane root = FXMLLoader.load(getClass().getResource("/edu/virginia/cs/gui/main_menu-view.fxml"));
+            Pane root = FXMLLoader.load(CourseReviewController.class.getResource("/edu/virginia/cs/gui/main_menu-view.fxml"));
             Stage stage = (Stage) login_name.getScene().getWindow();
             stage.setScene(new Scene(root));
         } catch (IOException e) {

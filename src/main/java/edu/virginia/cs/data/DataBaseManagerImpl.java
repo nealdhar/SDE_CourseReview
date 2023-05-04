@@ -247,7 +247,7 @@ public class DataBaseManagerImpl implements DatabaseManager {
                 connection.commit();
             }
             connection.close();
-            connection = null;
+            //connection = null;
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }

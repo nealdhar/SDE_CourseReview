@@ -16,10 +16,12 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/edu/virginia/cs/gui/login-view.fxml"));
         Parent parent = fxmlLoader.load();
         CourseReviewController controller = fxmlLoader.getController();
-        DataBaseManagerImpl dataBaseManager = new DataBaseManagerImpl();
-        dataBaseManager.connect();
+        //DataBaseManagerImpl dataBaseManager = new DataBaseManagerImpl();
+        //dataBaseManager.connect();
         //dataBaseManager.createTables();
-        dataBaseManager.createDatabaseData();
+        //dataBaseManager.createDatabaseData();
+        CourseReviewImplementation courseReview = new CourseReviewImplementation();
+        courseReview.connectDatabase();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.show();

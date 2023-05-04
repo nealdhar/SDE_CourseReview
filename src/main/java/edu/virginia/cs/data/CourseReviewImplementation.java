@@ -11,9 +11,8 @@ public class CourseReviewImplementation {
 
     DataBaseManagerImpl dataBaseManager = new DataBaseManagerImpl();
 
-    public static void main(String[] args) {
-        CourseReviewImplementation courseReview = new CourseReviewImplementation();
-        courseReview.connectDatabase();
+   // public static void main(String[] args) {
+
 //        courseReview.createTables();
 //        String userName = "ogf9uhy";
 //        String password = "mypassword";
@@ -29,7 +28,7 @@ public class CourseReviewImplementation {
 //        courseReview.seeReviews(courseName);
 //        courseReview.clearDatabase();
 //        courseReview.closeDatabase();
-    }
+    //}
 
 
     public void connectDatabase() {
@@ -47,6 +46,7 @@ public class CourseReviewImplementation {
 
 
     public String login(String userName, String password) {
+        dataBaseManager.connect();
         Student student = dataBaseManager.getStudent(userName);
         if (student == null) {
             return "Username not found";
