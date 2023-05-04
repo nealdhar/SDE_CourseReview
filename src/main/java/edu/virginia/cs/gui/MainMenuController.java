@@ -7,9 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
-import javafx.scene.Parent;
-
+import javafx.scene.control.Label;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,7 +20,12 @@ public class MainMenuController implements Initializable {
     protected Button view_reviews_button;
     @FXML
     protected Button logout_button;
+    @FXML
+    protected Label welcome_label;
     public void initialize(URL location, ResourceBundle resources) {
+        UserName userName = UserName.getInstance();
+        String username = userName.getUsername();
+        welcome_label.setText("Welcome, " + username + "!");
         submit_review_button.setOnAction((event) -> {
             navigateToSubmitReview();
         });
